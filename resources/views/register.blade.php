@@ -1,6 +1,6 @@
 <x-guest-layout>
-    <div class="flex flex-col h-screen justify-between">
-        <div class="w-full h-44 p-10">
+    <div class="flex flex-col h-screen">
+        <div class="w-full h-44 p-10 lg:pb-5">
             <svg class="w-30 h-30 m-auto" xmlns="http://www.w3.org/2000/svg" width="180.053" height="98.748"
                  viewBox="0 0 180.053 98.748">
                 <g id="Group_1" data-name="Group 1" transform="translate(-355.72 -782.323)">
@@ -53,12 +53,12 @@
             </svg>
         </div>
 
-        <div class="w-1/2 lg:w-2/5 mx-auto grid grid-cols-1 gap-4 content-center">
-            <div class="pt-20">
-                <div class="text-4xl text-center pb-12">Log in</div>
+        <div class="w-1/2 lg:w-2/5 m-auto grid grid-cols-1 gap-4 content-center">
+            <div class="">
+                <div class="text-4xl text-center lg:pb-1 pb-12">Create account</div>
                 <div class="grid grid-cols-1">
                     <form method="POST" action="{{ route('register') }}">
-                        <div class="bg-[#EFEFEF] p-4 rounded-[17px]">
+                        <div class="bg-[#EFEFEF] p-4 rounded-[17px] mb-20">
                             <div class="w-5/6 mx-auto">
                                 <x-auth-validation-errors class="mb-4" :errors="$errors" />
                             </div>
@@ -75,7 +75,7 @@
                             </div>
                             <div class="w-5/6 mx-auto py-3">
                                 <p class="text-2xl mr-auto">Password</p>
-                                <input name="password" placeholder="At least characters" type="password"
+                                <input name="password" placeholder="Add your password" type="password"
                                        class="w-full border-none rounded-[10px] py-3" required>
                             </div>
                             <div class="w-5/6 mx-auto py-3">
@@ -87,7 +87,7 @@
                                 <button
                                     type="submit"
                                     class="bg-[#FF5F4A] w-full text-center text-white text-2xl py-3 mt-4 rounded-[12px]">
-                                    Log in
+                                    Create account
                                 </button>
                             </div>
                             <div class="block mt-4 w-5/6 mx-auto">
@@ -98,13 +98,13 @@
                 </div>
             </div>
         </div>
-        <footer class="text-center w-1/2 lg:w-2/5 mx-auto mt-auto">
-            <div class="text-center grid grid-cols-11 justify-center ml-auto text-sm text-[#017467]">
-                <a class="col-span-3 text-blue-green whitespace-pre">Privacy Statement</a>
+        <footer class="text-center w-full flex justify-center mt-auto">
+            <div class="text-center text-sm text-[#017467] flex justify-between w-1/2 mb-4">
+                <a class="text-blue-green whitespace-pre">Privacy Statement</a>
                 <p class="px-2">|</p>
-                <a class="col-span-3 text-blue-green whitespace-pre">User Policy</a>
+                <a class="text-blue-green whitespace-pre">User Policy</a>
                 <p class="px-2">|</p>
-                <a class="col-span-3 text-blue-green whitespace-pre">Cookie Statement</a>
+                <a class="text-blue-green whitespace-pre">Cookie Statement</a>
             </div>
         </footer>
     </div>
