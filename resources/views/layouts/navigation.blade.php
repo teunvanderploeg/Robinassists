@@ -20,7 +20,7 @@
                             <div class="text-xl">Good morning {{ Auth::user()->name }}</div>
 
                             <div class="ml-1 p-1">
-                                <x-profile-photo></x-profile-photo>
+                                <x-profile-photo class="h-10 w-10"></x-profile-photo>
                             </div>
                         </button>
                     </x-slot>
