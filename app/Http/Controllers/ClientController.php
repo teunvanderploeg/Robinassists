@@ -16,12 +16,19 @@ class ClientController extends Controller
 
     public function create()
     {
-        return view('');
+        return view('client-create');
     }
 
     public function store(StoreClientRequest $request)
     {
-        //
+        $data = array_merge($request->validated(), ['user_id' => auth()->id()]);
+
+        $path = $request->file('photo')->store('public/images');
+        $data['photo'] = $path;
+
+        Client::query()->create($data);
+
+        return redirect()->route('dashboard');
     }
 
     public function show(Client $client)

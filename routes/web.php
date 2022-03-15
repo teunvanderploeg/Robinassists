@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +21,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/client/create', [ClientController::class, 'create'])->name('client.create');
+Route::post('/client', [ClientController::class, 'store'])->name('client.store');
 
 require __DIR__.'/auth.php';
