@@ -1,4 +1,4 @@
-<svg class="w-30 h-30 m-auto" {{ $attributes }} xmlns="http://www.w3.org/2000/svg" width="180.053" height="98.748"
+<svg {{ $attributes }} xmlns="http://www.w3.org/2000/svg" width="180.053" height="98.748"
      viewBox="0 0 180.053 98.748">
     <g id="Group_1" data-name="Group 1" transform="translate(-355.72 -782.323)">
         <g id="Laag_2" data-name="Laag 2" transform="translate(355.72 782.323)">

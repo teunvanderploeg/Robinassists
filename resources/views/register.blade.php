@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="flex flex-col h-screen">
         <div class="w-full h-44 p-10 lg:pb-5">
-            <x-guest-logo></x-guest-logo>
+            <x-guest-logo class="w-30 h-30 m-auto"></x-guest-logo>
         </div>
 
         <div class="w-1/2 lg:w-2/5 m-auto grid grid-cols-1 gap-4 content-center">
