@@ -12,6 +12,7 @@
                         @csrf
                         <div class="bg-[#EFEFEF] p-4 rounded-[17px]">
                             <div class="w-5/6 mx-auto">
+                                <x-auth-session-status class="mb-4" :status="session('status')" />
                                 <x-auth-validation-errors class="mb-4" :errors="$errors" />
                             </div>
                             <x-guest-input title="E-mailadress" placeholder="Please fill in your e-mailadress" name="email" type="email"></x-guest-input>

@@ -11,6 +11,7 @@
                     <form method="POST" action="{{ route('register') }}">
                         <div class="bg-[#EFEFEF] p-4 rounded-[17px] mb-20">
                             <div class="w-5/6 mx-auto">
+                                <x-auth-session-status class="mb-4" :status="session('status')" />
                                 <x-auth-validation-errors class="mb-4" :errors="$errors" />
                             </div>
                             @csrf
