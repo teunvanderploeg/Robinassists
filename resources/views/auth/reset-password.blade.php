@@ -1,48 +1,36 @@
 <x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-24 h-24 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+    <div class="flex flex-col h-screen">
+        <div class="w-full h-44 p-10 lg:pb-5">
+            <x-guest-logo></x-guest-logo>
+        </div>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('password.update') }}">
-            @csrf
-
-            <!-- Password Reset Token -->
-            <input type="hidden" name="token" value="{{ $request->route('token') }}">
-
-            <!-- Email Address -->
+        <div class="w-1/2 lg:w-2/5 m-auto grid grid-cols-1 gap-4 content-center">
             <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
+                <div class="text-4xl text-center lg:pb-1 pb-12">{{ __('Reset Password') }}</div>
+                <div class="grid grid-cols-1">
+                    <form method="POST" action="{{ route('password.update') }}">
+                        <div class="bg-[#EFEFEF] p-4 rounded-[17px] mb-20">
+                            <div class="w-5/6 mx-auto">
+                                <x-auth-session-status class="mb-4" :status="session('status')" />
+                                <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                            </div>
+                            @csrf
+                            <input type="hidden" name="token" value="{{ $request->route('token') }}">
+                            <x-guest-input title="E-mailadress" placeholder="Please fill in your e-mailadress" name="email" type="email"></x-guest-input>
+                            <x-guest-input title="Password" placeholder="Add your password" name="password" type="password"></x-guest-input>
+                            <x-guest-input title="Repeat password" placeholder="Repeat your password" name="password_confirmation" type="password"></x-guest-input>
+                            <div class="w-5/6 mx-auto">
+                                <button
+                                    type="submit"
+                                    class="bg-[#FF5F4A] w-full text-center text-white text-2xl py-3 mt-4 rounded-[12px]">
+                                    {{ __('Reset Password') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                    type="password"
-                                    name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Reset Password') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
+        </div>
+        <x-guest-footer></x-guest-footer>
+    </div>
 </x-guest-layout>
