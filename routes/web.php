@@ -14,15 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::view('/', 'welcome')->name('welcome');
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::view('/dashboard', 'dashboard')->name('dashboard');
+
+    Route::get('/client/create', [ClientController::class, 'create'])->name('client.create');
+    Route::post('/client', [ClientController::class, 'store'])->name('client.store');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
-Route::get('/client/create', [ClientController::class, 'create'])->name('client.create');
-Route::post('/client', [ClientController::class, 'store'])->name('client.store');
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
