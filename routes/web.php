@@ -23,5 +23,4 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/client', [ClientController::class, 'store'])->name('client.store');
 });
 
-
 require __DIR__ . '/auth.php';
