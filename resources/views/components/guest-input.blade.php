@@ -3,6 +3,6 @@
     <input name="{{ $name }}"
            placeholder="{{ $placeholder }}"
            type="{{ $type ?? 'text' }}"
-           value="{{ old($name) }}"
+           value="{{ old($name, $value ?? null) }}"
            class="w-full border-none rounded-[10px] py-3 @isset($name) border border-red-500 @endisset" required>
 </div>

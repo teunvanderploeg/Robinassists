@@ -21,6 +21,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/client/create', [ClientController::class, 'create'])->name('client.create');
     Route::post('/client', [ClientController::class, 'store'])->name('client.store');
+    Route::get('/client/{client}/edit', [ClientController::class, 'edit'])->name('client.edit');
+    Route::post('/client/{client}', [ClientController::class, 'update'])->name('client.update');
 });
 
 require __DIR__ . '/auth.php';

@@ -37,12 +37,21 @@ class ClientController extends Controller
     }
     public function edit(Client $client)
     {
-        //
+        return view('client-edit', ['client' => $client]);
     }
 
     public function update(UpdateClientRequest $request, Client $client)
     {
-        //
+        $data = array_merge($request->validated(), ['user_id' => auth()->id()]);
+
+        if (isset($data['photo'])){
+            $path = $request->file('photo')->store('public/images');
+            $data['photo'] = $path;
+        }
+
+        $client->update($data);
+
+        return redirect()->route('dashboard');
     }
 
     public function destroy(Client $client)

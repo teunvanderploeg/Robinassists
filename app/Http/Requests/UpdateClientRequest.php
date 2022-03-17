@@ -6,15 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateClientRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return false;
-    }
 
     /**
      * Get the validation rules that apply to the request.
@@ -24,7 +15,14 @@ class UpdateClientRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'birthday' => 'required|date',
+            'gender' => 'required|between:1,3',
+            'panic_button' => 'required|between:1,3',
+            'relation' => 'required|between:1,2',
+            'color' => 'required|between:1,4',
+            'photo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:20048',
         ];
     }
 }
